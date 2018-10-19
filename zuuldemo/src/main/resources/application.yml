@@ -1,0 +1,12 @@
+#tomcat server config
+server:
+  port: 8080
+  address: 127.0.0.1
+#  servlet:
+#      context-path: /zuul-gw
+
+zuul:
+  routes:
+    serverone:
+      path: /serverone/**
+      url: http://127.0.0.1:8081/serverone/
