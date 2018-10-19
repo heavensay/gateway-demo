@@ -1,5 +1,10 @@
+### MAVEN gradle ###
 /target/
-!.mvn/wrapper/maven-wrapper.jar
+mvnw
+mvnw.cmd
+.mvn/
+/.gradle/
+/gradle/
 
 ### STS ###
 .apt_generated
@@ -23,3 +28,25 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### eclipse ###
+.metadata/
+.settings/
+.project
+.classpath
+
+
+
+### Package Files ###
+*.jar
+*.war
+*.ear
+
+
+### other ###
+#jrebel
+rebel.xml
+
+
+
+
