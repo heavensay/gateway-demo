@@ -59,6 +59,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         AuthenticationManager manager = super.authenticationManagerBean();
+//        AuthenticationManager manager = new PasswordAuthenticationManager();
         return manager;
     }
 
@@ -69,7 +70,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //通过formlogin方法登录
                 .formLogin()
     //              并设置登录页面url为/api/user/login
-    //                .loginPage("/api/user/login")
+//                    .loginPage("/api/user/login")
                     //登录请求处理url
     //                .loginProcessingUrl("/authentication/form")
                     //指定登录成功后跳转到/index页面
@@ -79,7 +80,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .permitAll()
                     .and()
                 .authorizeRequests()
-                    .antMatchers("/oauth/*,/hello/*").permitAll()
+//                    .antMatchers("/oauth/**,/hello/**").permitAll()
+                    .antMatchers("/order/**").authenticated()
                     .anyRequest().authenticated();
                 //使用自定义授权策略
 //                .anyRequest().access("@mySecurity.check(authentication,request)");

@@ -96,6 +96,8 @@ public class OAuth2ServerConfig {
 
         @Override
         public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+            oauthServer.tokenKeyAccess("permitAll()");
+            oauthServer.checkTokenAccess("isAuthenticated()");
             //允许表单认证
             oauthServer.allowFormAuthenticationForClients();
         }
