@@ -67,8 +67,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http
-                //通过formlogin方法登录
+//                .authorizeRequests()
+//                .anyRequest().authenticated()
+//                //通过formlogin方法登录
+//                .and()
                 .formLogin()
+                .permitAll()
     //              并设置登录页面url为/api/user/login
 //                    .loginPage("/api/user/login")
                     //登录请求处理url
@@ -77,13 +81,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //                .defaultSuccessUrl("/index")
                     //指定登录失败后跳转到/login?error页面
     //                .failureUrl("/login?error")
-                    .permitAll()
-                    .and()
+                .and()
                 .authorizeRequests()
-//                    .antMatchers("/oauth/**,/hello/**").permitAll()
-                    .antMatchers("/order/**").authenticated()
-                    .anyRequest().authenticated();
-                //使用自定义授权策略
-//                .anyRequest().access("@mySecurity.check(authentication,request)");
+                .anyRequest().authenticated();
     }
 }
