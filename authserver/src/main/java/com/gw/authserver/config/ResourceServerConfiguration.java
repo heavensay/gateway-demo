@@ -34,10 +34,6 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 //                    .and()
 //                    .anonymous()
 //                    .and()
-                    .requestMatchers()
-                    .antMatchers("/order/**")
-//                    .anyRequest()
-                    .and()
                     .authorizeRequests()
 //                    .antMatchers("/user/permisson/**").access("#oauth2.hasScope('select') and hasRole('ROLE_USER')")
                     .antMatchers("/order/**").authenticated()//配置order访问控制，必须认证过后才可以访问
